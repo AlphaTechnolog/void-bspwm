@@ -1,0 +1,67 @@
+(defpoll wifi_name :interval "3s" "./scripts/getNetwork name")
+(defpoll wifi_icon :interval "3s" "./scripts/getNetwork icon")
+(defpoll wifi_class :interval "3s" "./scripts/getNetwork class")
+
+(defwidget icon [text tooltip ?class ?onclick]
+  (button
+    :class "dispatcher-icon ${class}"
+    :tooltip tooltip
+    :onclick onclick
+    text
+  )
+)
+
+(defwidget network []
+  (icon
+    :text wifi_icon
+    :tooltip "${wifi_name}"
+    :class "network-icon ${wifi_class}"
+    :onclick "st -c network -e lessborder nmtui"
+  )
+)
+
+(defwidget volume []
+  (label :text "V" :tooltip "Volume")
+)
+
+(defwidget brightness []
+  (label :text "B" :tooltip "Brightness")
+)
+
+(defwidget ram-chart []
+  (label :text "R" :tooltip "Ram chart")
+)
+
+(defwidget processor-chart []
+  (label :text "P" :tooltip "Processor chart")
+)
+
+(defwidget actions []
+  (box :orientation "v"
+       :class "actions-box"
+       :space-evenly "false"
+    (box :orientation "h"
+         :class "widgets-row"
+         :halign "center"
+         :space-evenly "false"
+      (network)
+      (volume)
+      (brightness)
+    )
+    (box :orientation "h"
+         :class "charts-row"
+         :halign "center"
+         :space-evenly "false"
+      (ram-chart)
+      (processor-chart)
+    )
+  )
+)
+
+(defwindow actions
+  :geometry (geometry :x "12%"
+                      :y "8%"
+                      :width "170px"
+                      :height "80px"
+                      :anchor "top left")
+(actions))

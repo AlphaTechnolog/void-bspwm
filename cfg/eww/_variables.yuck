@@ -1,0 +1,11 @@
+(defpoll art :interval "5s" "scripts/echoSongArt")
+(defpoll song_art :interval "5s" "scripts/getSongArt")
+(defpoll song_title :interval "5s" "scripts/getSongTitle")
+(defpoll full_song_title :interval "5s" "scripts/getSongTitle full")
+
+(defpoll calendar_day :interval "10h" "date '+%d'")
+(defpoll calendar_month :interval "10h" "./scripts/getCalendarMonth")
+(defpoll calendar_year :interval "10h" "date '+%Y'")
+
+(defpoll network_icon :interval "3s" "./scripts/getNetwork icon")
+(defpoll network_name :interval "3s" "./scripts/getNetwork name")

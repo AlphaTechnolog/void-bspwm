@@ -1,0 +1,112 @@
+(include "./_variables.yuck")
+(include "./_actions.yuck")
+(include "./_calendar.yuck")
+
+(defwidget launcher[]
+  (box :orientation "h"
+       :class "launcher"
+       :tooltip "Launch apps"
+    (button :class "dispatcher" :onclick "rofi -show drun &" "")
+  )
+)
+
+(defwidget workspaces []
+  (literal :content workspace)
+)
+(deflisten workspace "scripts/getWorkspaces")
+
+(defwidget left []
+  (box :orientation "h"
+       :space-evenly "false"
+       :halign "start"
+       :class "left"
+  (launcher)
+  (workspaces))
+)
+
+(defwidget wintitle []
+  (label :text xtitle :class "wintitle")
+)
+(defpoll xtitle :interval "1s" "scripts/getWinTitle")
+
+(defwidget center []
+  (box :class "center-widgets"
+       :space-evenly "false"
+       :halign "center"
+       :orientation "h"
+    (wintitle)
+  )
+)
+
+(defwidget sep []
+  (label :class "sep" :text "")
+)
+
+(defwidget dropdown [onclick ?class ?tooltip]
+  (button :tooltip tooltip :class class :onclick onclick "")
+)
+
+(defwidget datebox []
+  (box :orientation "h"
+       :class "date-box"
+       :space-evenly "false"
+    (label :text dateval :class "content")
+    (dropdown
+      :onclick "eww open --toggle calendar"
+      :class "date-dropdown"
+      :tooltip "Toggle calendar")
+  )
+)
+(defpoll dateval :interval "1s" "scripts/getDate")
+
+(defwidget musicbox[]
+  (box :orientation "h"
+       :space-evenly "false"
+       :class "musicbox"
+    song_art
+    (box :class "art" :path art :style "background-image: url('${art}')")
+    (label :class "title" :text song_title :tooltip full_song_title)
+  )
+)
+
+(defwidget actions-dispatcher[]
+  (box :class "actions-dispatcher"
+       :orientation "h"
+       :space-evenly "false"
+    (button :onclick "eww open --toggle actions"
+            :class "actions-dropdown"
+            :tooltip "Open actions" "舘"
+    )
+  )
+)
+
+(defwidget right []
+  (box :class "right-modules"
+       :space-evenly "false"
+       :halign "end"
+       :orientation "h"
+    (musicbox)
+    (datebox)
+  )
+)
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwindow bar
+   :geometry (geometry :x "0px"
+                       :y "10px"
+                       :width "98%"
+                       :height "40px"
+                       :anchor "top center")
+   :stacking "fg"
+   :reserve (struts :distance "50px" :side "top")
+   :windowtype "dock"
+   :wm-ignore false
+ (bar))

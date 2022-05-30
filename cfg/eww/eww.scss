@@ -1,0 +1,164 @@
+@import "_colors";
+
+.bar {
+  background-color: $bg;
+  font-family: Iosevka Nerd Font;
+  font-size: 12px;
+  color: $fg;
+}
+
+.launcher {
+  margin: 7px 0 7px 7px;
+  font-size: 14px;
+  .dispatcher {
+    background-color: $green;
+    color: $bg;
+    border-radius: 7px;
+    font-size: inherit;
+    padding: 0 14px 0 10px;
+  }
+}
+
+.works {
+  margin-top: 7px;
+  margin-left: 13px;
+  font-size: 11px;
+  background-color: $contrastbg;
+
+  .0 {
+    color: $black;
+    background-color: $bg;
+    padding: 6px 10px;
+  }
+
+  .01, .02, .03, .04, .05, .06 {
+    color: $fg;
+    background-color: $bg;
+    padding: 6px 10px;
+  }
+  
+  .011, .022, .033, .044, .055, .066 {
+    color: $green;
+    background-color: $bg;
+    padding: 6px 10px;
+  }
+}
+
+.wintitle {
+  background-color: $contrastbg;
+  color: $green;
+  margin: 7px 0;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.date-box {
+  background: $yellow;
+  margin: 7px 7px 7px 0;
+  padding: 0 8px 0 12px;
+  border-radius: 7px;
+  .content {
+    color: $bg;
+    font-size: 14px;
+  }
+  .date-dropdown {
+    background-color: inherit;
+    margin: 0;
+    padding: 0 5px 0 10px;
+    color: $bg;
+  }
+}
+
+.sep {
+  color: $black;
+  padding: 0 5px;
+}
+
+.musicbox {
+  margin-right: 17px;
+  .art {
+    border-radius: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 10px;
+  }
+}
+
+// calendar
+.cal-box {
+  font-family: Iosevka Nerd Font;
+  background-color: $bg;
+  border-radius: 8px;
+  padding: 1rem 1rem .2rem;
+
+  .cal {
+    background-color: inherit;
+    padding: .8rem .25rem 0rem;
+    margin-left: 10px;
+
+    & > * {
+      border: solid 0px transparent;
+    }
+    
+    &.highlight {
+      padding: 10rem;
+    }
+  }
+}
+
+calendar:selected {
+  color: $accent;
+}
+
+calendar.header {
+  color: $cyan;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $cyan;
+}
+
+calendar.highlight {
+  color: $green;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: rgba(205, 219, 249, 0.3);
+}
+
+// actions
+.actions-dispatcher {
+  background-color: $blue;
+  color: $bg;
+  margin: 7px;
+  margin-left: 11px; // @override: margin: 7px; (at left)
+  padding: 0 7px 0 12px;
+  border-radius: 7px;
+  .actions-dropdown {
+    background-color: inherit;
+    margin: 0;
+    padding: 0 7px 0 0;
+    color: inherit;
+  }
+}
+
+// icons
+.dispatcher-icon {
+  background-color: inherit;
+  color: inherit;
+  padding: 6px;
+}
+
+// network
+.network-icon {
+  color: $cyan;
+  font-size: 28px; 
+  &.disconnected { color: $red; }
+  &.connected { color: $green; }
+}
