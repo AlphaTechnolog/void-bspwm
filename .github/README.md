@@ -33,7 +33,7 @@ Here are some details about my setup:
 
 - **OS:** [Void Linux](https://voidlinux.org)
 - **WM:** [bspwm](https://github.com/baskerville/bspwm)
-- **Terminal:** [st](https://github.com/alacritty/alacritty)
+- **Terminal:** [st](https://st.suckless.org/)
 - **Shell:** [fish](https://fishshell.com/)
 - **Editor:** [neovim](https://github.com/neovim/neovim)
 - **Compositor:** [picom](https://github.com/yshui/picom)
