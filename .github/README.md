@@ -31,7 +31,7 @@ Welcome! This is the repository for my void linux themed rice using bspwm + eww!
 
 Here are some details about my setup:
 
-- **OS:** [Void Linux](https://archlinux.org)
+- **OS:** [Void Linux](https://voidlinux.org)
 - **WM:** [bspwm](https://github.com/baskerville/bspwm)
 - **Terminal:** [st](https://github.com/alacritty/alacritty)
 - **Shell:** [fish](https://fishshell.com/)
