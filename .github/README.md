@@ -64,3 +64,21 @@ Then install the next requirements
 - alsa-tools (for amixer)
 - pulseaudio-alsa
 - playerctl
+
+Then copy the configs
+
+**WARNING**: Configuration files may be overrided.
+
+```sh
+cp -r ./cfg/* ~/.config
+cp -r ./bin/* ~/.local/bin
+```
+
+Then compile my build of st (this is the default terminal, but you can change it in the sxhkd configuration):
+
+```sh
+cd ~/.config/st
+rm config.h && sudo make clean install
+```
+
+> It could throws some errors, make sure you have the correct dependencies for st like `harfbuzz` and `imlib2` (if not luck, try installing the `-dev` or `-devel` pkgs)
